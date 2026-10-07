@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T17:45:00.000Z",
+  "title": "Design System: COOLDER",
+  "extensions": {
+    "colorMeta": {
+      "frost": { "role": "primary", "displayName": "Don lacivert", "canonical": "#183044" },
+      "cyan": { "role": "primary", "displayName": "Derin cyan", "canonical": "#0e7490" },
+      "sky": { "role": "secondary", "displayName": "Gökyüzü", "canonical": "#0369a1" },
+      "alert": { "role": "secondary", "displayName": "Uyarı kırmızısı", "canonical": "#c81e1e" },
+      "ok": { "role": "secondary", "displayName": "Onay yeşili", "canonical": "#047857" },
+      "amber": { "role": "secondary", "displayName": "Kehribar", "canonical": "#c2410c" },
+      "paper": { "role": "neutral", "displayName": "Soğuk kâğıt", "canonical": "#eef3f7" },
+      "white": { "role": "neutral", "displayName": "Beyaz", "canonical": "#ffffff" },
+      "mute": { "role": "neutral", "displayName": "Don mürekkep", "canonical": "#3d5363" },
+      "line": { "role": "neutral", "displayName": "Çizgi", "canonical": "#c9d7e1" },
+      "ice": { "role": "neutral", "displayName": "Buz", "canonical": "#e0f2fe" },
+      "matte": { "role": "neutral", "displayName": "Matte", "canonical": "#e4edf3" },
+      "steel": { "role": "neutral", "displayName": "Steel", "canonical": "#f4f8fb" },
+      "plate": { "role": "neutral", "displayName": "Plate", "canonical": "#d5e2eb" },
+      "mist": { "role": "neutral", "displayName": "Mist", "canonical": "#d6e6ef" },
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "#101c24" },
+      "night-edge": { "role": "neutral", "displayName": "Night edge", "canonical": "#1f3a4a" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Kapak başlığı." },
+      "headline": { "displayName": "Headline", "purpose": "Bölüm başlığı." },
+      "title": { "displayName": "Title", "purpose": "Karo ve adım." },
+      "body": { "displayName": "Body", "purpose": "Açıklama, 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "WhatsApp ve adım." },
+      "nav": { "displayName": "Nav", "purpose": "Üst menü linkleri." },
+      "script": { "displayName": "Script", "purpose": "Yalnız slogan." }
+    },
+    "shadows": [
+      {
+        "name": "tile-rest",
+        "value": "0 10px 28px rgba(0, 0, 0, 0.06)",
+        "purpose": "Karo dinlenme."
+      },
+      {
+        "name": "hud",
+        "value": "0 14px 36px rgba(0, 0, 0, 0.16)",
+        "purpose": "Hover ve diyalog."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Buton, karo ve galeri hover."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Teklif ve birincil eylem.",
+      "html": "<button class=\"ds-btn-primary\">Teklif al</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.8rem 1.4rem; background: var(--color-cyan, #0e7490); color: #fff; border: 0; border-radius: 999px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), background 0.18s ease; } .ds-btn-primary:hover { background: var(--color-sky, #0369a1); transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-cyan, #0e7490); outline-offset: 3px; }"
+    },
+    {
+      "name": "Alert Button",
+      "kind": "button",
+      "refersTo": "button-alert",
+      "description": "Yalnız arıza bildir.",
+      "html": "<button class=\"ds-btn-alert\">Arıza bildir</button>",
+      "css": ".ds-btn-alert { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.8rem 1.4rem; background: var(--color-alert, #c81e1e); color: #fff; border: 0; border-radius: 999px; font-weight: 600; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-alert:hover { transform: translateY(-1px); } .ds-btn-alert:focus-visible { outline: 2px solid var(--color-alert, #c81e1e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Hero Button",
+      "kind": "button",
+      "refersTo": "button-on-hero",
+      "description": "Kapak üzerinde birincil kapı.",
+      "html": "<button class=\"ds-btn-hero\">Ürün grupları</button>",
+      "css": ".ds-btn-hero { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.8rem 1.4rem; background: #fff; color: var(--color-frost, #183044); border: 0; border-radius: 999px; font-weight: 600; cursor: pointer; transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-hero:hover { transform: translateY(-1px); } .ds-btn-hero:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Product Tile",
+      "kind": "card",
+      "refersTo": "card-tile",
+      "description": "Eşit karo; tıklanınca teklif sihirbazı.",
+      "html": "<button class=\"ds-tile\"><span class=\"ds-tile-media\"></span><span class=\"ds-tile-label\">Reyon dolapları</span></button>",
+      "css": ".ds-tile { display: flex; flex-direction: column; width: 100%; overflow: hidden; border: 1px solid var(--color-line, #c9d7e1); background: #fff; border-radius: var(--radius-tile, 1.15rem); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06); text-align: center; cursor: pointer; transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; } .ds-tile:hover { border-color: var(--color-cyan, #0e7490); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16); transform: translateY(-2px); } .ds-tile-media { display: block; aspect-ratio: 1; background: var(--color-plate, #d5e2eb); } .ds-tile-label { display: flex; min-height: 3.25rem; align-items: center; justify-content: center; padding: 0.75rem; font-weight: 600; color: var(--color-frost, #183044); }"
+    },
+    {
+      "name": "Wordmark Nav",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sabit çubuk, wordmark, Teklif al, Saha işlerimiz.",
+      "html": "<nav class=\"ds-nav\"><strong>COOLDER</strong><span>Konya soğutma</span><button class=\"ds-btn-primary\">Teklif al</button></nav>",
+      "css": ".ds-nav { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; height: 4.25rem; padding: 0 1.5rem; background: #fff; border-bottom: 1px solid var(--color-line, #c9d7e1); color: var(--color-frost, #183044); font-size: var(--text-nav, 0.95rem); font-weight: 500; } .ds-nav strong { font-size: 18px; letter-spacing: -0.02em; } .ds-nav span { font-size: 14px; color: var(--color-mute, #3d5363); } .ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.8rem 1.4rem; background: var(--color-cyan, #0e7490); color: #fff; border: 0; border-radius: 999px; font-weight: 600; }"
+    },
+    {
+      "name": "Measure Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Metre / not alanı, cyan caret.",
+      "html": "<label class=\"ds-field\">Uzunluk (m)<input class=\"ds-input\" placeholder=\"örn. 4\" /></label>",
+      "css": ".ds-field { display: grid; gap: 0.5rem; font-size: 14px; font-weight: 600; color: var(--color-frost, #183044); } .ds-input { border: 1px solid var(--color-line, #c9d7e1); background: var(--color-obsidian, #eef3f7); border-radius: var(--radius-soft, 0.9rem); padding: 0.75rem; font-size: 1rem; caret-color: var(--color-cyan, #0e7490); } .ds-input:focus-visible { outline: 2px solid var(--color-cyan, #0e7490); outline-offset: 3px; }"
+    },
+    {
+      "name": "Field Works Shot",
+      "kind": "custom",
+      "refersTo": "works-shot",
+      "description": "Saha galerisi karesi; hover’da renk ve büyüme.",
+      "html": "<div class=\"ds-works-item\"><button class=\"ds-works-shot\" aria-label=\"Saha fotoğrafı\"></button></div>",
+      "css": ".ds-works-item { display: grid; grid-template-columns: 10.5rem; grid-template-rows: 13rem; transition: grid-template-columns 280ms cubic-bezier(0.22, 1, 0.36, 1), grid-template-rows 280ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-works-item:is(:hover, :focus-within) { grid-template-columns: 14rem; grid-template-rows: 17.5rem; } .ds-works-shot { display: block; width: 100%; height: 100%; overflow: hidden; border-radius: var(--radius-soft, 0.9rem); background: var(--color-plate, #d5e2eb); cursor: pointer; filter: grayscale(1) brightness(0.78); transition: filter 220ms ease, box-shadow 220ms ease; } .ds-works-item:is(:hover, :focus-within) .ds-works-shot { filter: none; box-shadow: 0 14px 32px color-mix(in srgb, var(--color-frost, #183044) 22%, transparent); } .ds-works-shot:focus-visible { outline: 2px solid var(--color-cyan, #0e7490); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Soğuk kâğıt, sıcak cevap",
+    "overview": "Açık, gündüz işletme ışığında okunan bir vitrin. Zemin soğuk kâğıt; yazı don laciverti. Cyan yalnız kapı ve vurgu için. Üst kapak buzdan bir sahne; altı sakin, halkın okuduğu bir katalog. Ana sayfa sırası: kapak → hakkımızda → ürünler → servis → saha işlerimiz → iletişim.",
+    "keyCharacteristics": [
+      "IBM Plex Sans gövde ve başlık; Caveat yalnız slogan",
+      "Eyebrow / kicker yok; başlık kendi ağırlığını taşır",
+      "Numara tıklanınca WhatsApp",
+      "Gerçek ürün / saha görselleri; yoksa dürüst yer tutucu",
+      "Saha işlerimiz: gri kayan galeri, hover büyüme, lightbox"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Cyan bir ekranın en fazla onda biridir. Acil kırmızı yalnız arıza kapısındadır.", "section": "colors" },
+      { "name": "The No-Kicker Rule", "body": "Başlığın üstüne küçük uppercase etiket konmaz.", "section": "typography" },
+      { "name": "The Resting Flat Rule", "body": "Sıfır ofsetli renk halesi yok.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do ikincil metni frost’tan tintle (#3d5363).",
+      "Do numarayı WhatsApp’a bağla.",
+      "Do görselsiz yerde yer tutucu bırak."
+    ],
+    "donts": [
+      "Don't eyebrow / kicker koy.",
+      "Don't üretim, ödül veya sertifika uydur.",
+      "Don't Inter, mor gradyan veya iç içe kart kullan.",
+      "Don't tel: aç."
+    ]
+  }
+}
