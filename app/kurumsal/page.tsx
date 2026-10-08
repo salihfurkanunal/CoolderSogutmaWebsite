@@ -15,7 +15,7 @@ export default function KurumsalPage() {
       <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-tile bg-plate">
         <Image
           src="/images/about/sanayi.webp"
-          alt="COOLDER dükkanı ve tabelaları, Konya"
+          alt="COOLDER Soğutma merkez binası, Konya"
           fill
           sizes="(max-width: 1024px) 100vw, 72rem"
           className="object-cover object-center"

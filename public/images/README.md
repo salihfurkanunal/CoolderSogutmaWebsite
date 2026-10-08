@@ -3,7 +3,7 @@
 Optimized assets live here and are committed:
 
 - `hero/banner.webp` — kapak
-- `about/sanayi.webp` — hakkımızda
+- `about/sanayi.webp` — hakkımızda / merkez bina
 - `products/<family-id>.webp` — ürün grubu görselleri
 - `works/work-NN.webp` — saha işleri galerisi
 - `logo.webp`, `topbar-yazi-b.webp` — üst çubuk

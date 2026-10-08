@@ -71,7 +71,7 @@ export function About() {
         >
           <Image
             src="/images/about/sanayi.webp"
-            alt="COOLDER dükkanı ve tabelaları, Konya"
+            alt="COOLDER Soğutma merkez binası, Konya"
             fill
             sizes="(max-width: 1024px) 100vw, 40vw"
             className="object-cover object-center"
