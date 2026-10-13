@@ -26,11 +26,10 @@ export function FieldWorks() {
   });
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
-  const [manualPaused, setManualPaused] = useState(false);
   const [dragging, setDragging] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const open = lightbox !== null;
-  const loopPaused = paused || manualPaused || open || dragging;
+  const loopPaused = paused || open || dragging;
 
   const closeLightbox = useCallback(() => setLightbox(null), []);
   const showPrev = useCallback(() => {
@@ -171,16 +170,8 @@ export function FieldWorks() {
           Saha işlerimiz
         </h2>
         <p className="mx-auto mt-4 max-w-[36rem] text-base leading-7 text-mute">
-          Kurulum ve servisten kareler. Sürükleyerek gezinin; üzerine gelince büyür, tıklayınca açılır.
+          Kurulum ve servisten kareler. Sürükleyerek gezinin; tıklayınca büyütülür.
         </p>
-        <button
-          type="button"
-          className="mt-4 rounded-full border border-line px-4 py-2 text-sm font-medium text-mute hover:border-cyan hover:text-frost sm:hidden"
-          onClick={() => setManualPaused((v) => !v)}
-          aria-pressed={manualPaused}
-        >
-          {manualPaused ? "Kaydı sürdür" : "Kaydı durdur"}
-        </button>
       </div>
 
       <div

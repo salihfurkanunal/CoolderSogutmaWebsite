@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="ana-sayfa"
-      className="relative isolate h-[calc(100svh-4.25rem)] min-h-[calc(100svh-4.25rem)] overflow-hidden bg-night"
+      className="relative isolate overflow-hidden bg-night max-sm:aspect-[4/5] max-sm:min-h-[28rem] sm:h-[calc(100svh-4.25rem)] sm:min-h-[calc(100svh-4.25rem)]"
     >
       <Image
         src="/images/hero/banner.webp"
@@ -14,21 +14,21 @@ export function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-cover object-[52%_58%] sm:object-center"
       />
       <div className="hero-ice-veil pointer-events-none absolute inset-0" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-4 py-16 sm:px-6">
-        <p className="script-slogan max-w-xl text-[clamp(1.85rem,4.2vw,2.9rem)] text-white">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-end px-4 pb-10 pt-16 sm:justify-center sm:px-6 sm:pb-16 sm:pt-16">
+        <p className="script-slogan max-w-xl text-[clamp(1.55rem,5.5vw,2.9rem)] text-white">
           Soğuk kalsın, iş yürüsün.
         </p>
-        <h1 className="display mt-4 max-w-[16ch] text-[clamp(2.5rem,6.2vw,4.5rem)] text-white">
+        <h1 className="display mt-3 max-w-[16ch] text-[clamp(2rem,8vw,4.5rem)] text-white sm:mt-4">
           Soğutmanız bozulmasın, işiniz durmasın.
         </h1>
-        <p className="mt-7 max-w-[38rem] text-base leading-8 text-white [text-shadow:0_1px_2px_rgba(16,28,36,0.9),0_0_28px_rgba(16,28,36,0.55)] sm:text-lg">
+        <p className="mt-5 max-w-[38rem] text-[0.95rem] leading-7 text-white [text-shadow:0_1px_2px_rgba(16,28,36,0.9),0_0_28px_rgba(16,28,36,0.55)] sm:mt-7 sm:text-base sm:leading-8 sm:text-lg">
           Reyon dolabı, soğuk oda ve süt tankı. Konya’dan kuruyor, bozulursa 7/24 geliyoruz.
         </p>
-        <div className="mt-9 flex flex-wrap gap-3">
+        <div className="mt-7 flex flex-wrap gap-3 sm:mt-9">
           <Link href="/#urun-gruplari" className="btn bg-white text-frost">
             Ürün grupları
           </Link>
