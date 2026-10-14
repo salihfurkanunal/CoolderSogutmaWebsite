@@ -50,18 +50,28 @@ export function ServiceHub() {
 
         <div className="mt-16">
           <h3 className="text-center text-xl font-bold">Kurulum nasıl ilerler?</h3>
-          <ol className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ol className="mt-8 grid list-none gap-8 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {PHASES.map((p, i) => (
-              <li key={p.n} className="relative text-center lg:text-left">
-                {i < PHASES.length - 1 ? (
-                  <span
-                    className="pointer-events-none absolute top-3 left-10 hidden h-px w-[calc(100%-0.5rem)] bg-line lg:block"
-                    aria-hidden
-                  />
-                ) : null}
-                <p className="tabular text-sm font-bold text-cyan">{p.n}</p>
-                <p className="mt-3 font-semibold">{p.t}</p>
-                <p className="mt-2 text-sm leading-6 text-mute">{p.d}</p>
+              <li key={p.n} className="flex flex-col items-center text-center">
+                <div className="relative flex h-6 w-full items-center justify-center">
+                  {i > 0 ? (
+                    <span
+                      className="absolute right-1/2 top-1/2 hidden h-px w-1/2 -translate-y-1/2 bg-line lg:block"
+                      aria-hidden
+                    />
+                  ) : null}
+                  {i < PHASES.length - 1 ? (
+                    <span
+                      className="absolute left-1/2 top-1/2 hidden h-px w-1/2 -translate-y-1/2 bg-line lg:block"
+                      aria-hidden
+                    />
+                  ) : null}
+                  <span className="relative z-10 bg-white px-2.5 tabular text-sm font-bold leading-none text-cyan">
+                    {p.n}
+                  </span>
+                </div>
+                <p className="mt-3 font-semibold leading-tight">{p.t}</p>
+                <p className="mt-2 max-w-[16rem] text-sm leading-6 text-mute">{p.d}</p>
               </li>
             ))}
           </ol>
