@@ -119,16 +119,15 @@ select {
   background:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--color-night) 94%, transparent) 0%,
-      color-mix(in srgb, var(--color-night) 86%, transparent) 34%,
-      color-mix(in srgb, var(--color-night) 55%, transparent) 58%,
-      color-mix(in srgb, var(--color-night) 18%, transparent) 78%,
-      transparent 100%
+      color-mix(in srgb, var(--color-night) 58%, transparent) 0%,
+      color-mix(in srgb, var(--color-night) 38%, transparent) 32%,
+      color-mix(in srgb, var(--color-night) 16%, transparent) 58%,
+      transparent 82%
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--color-night) 35%, transparent),
-      color-mix(in srgb, var(--color-night) 62%, transparent)
+      color-mix(in srgb, var(--color-night) 12%, transparent),
+      color-mix(in srgb, var(--color-night) 28%, transparent)
     );
 }
 
@@ -137,10 +136,10 @@ select {
     background:
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--color-night) 28%, transparent) 0%,
-        color-mix(in srgb, var(--color-night) 42%, transparent) 38%,
-        color-mix(in srgb, var(--color-night) 78%, transparent) 72%,
-        color-mix(in srgb, var(--color-night) 92%, transparent) 100%
+        color-mix(in srgb, var(--color-night) 10%, transparent) 0%,
+        color-mix(in srgb, var(--color-night) 18%, transparent) 40%,
+        color-mix(in srgb, var(--color-night) 42%, transparent) 72%,
+        color-mix(in srgb, var(--color-night) 58%, transparent) 100%
       );
   }
 }

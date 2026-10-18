@@ -27,6 +27,15 @@ export const metadata: Metadata = {
   },
   description:
     "Konya’dan reyon dolabı, soğuk oda, süt tankı, montaj ve 7/24 tamir. Sade, hızlı, anlaşılır soğutma çözümü.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "tr_TR",
