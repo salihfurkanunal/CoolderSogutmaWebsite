@@ -255,4 +255,7 @@ export function productGroupImage(id: ProductFamily): string {
 export const WHATSAPP_HOTLINE = "905051367272";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_HOTLINE}`;
 export const DISPATCH_PHONE = "+90 505 136 72 72";
-export const PLANT_ADDRESS = "1. Organize Sanayi Bölgesi, Konya";
+export const INSTAGRAM_URL = "https://www.instagram.com/coolder_sogutma/";
+export const INSTAGRAM_HANDLE = "@coolder_sogutma";
+export const PLANT_ADDRESS =
+  "Keykubat Sanayi Sitesi 10564. Sk. 40, 42210 Karatay/Konya";

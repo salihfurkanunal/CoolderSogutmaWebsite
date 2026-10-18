@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DISPATCH_PHONE, WHATSAPP_URL } from "@/lib/catalog";
-import { useNeedWizard } from "./NeedWizard";
 
 const LINKS = [
   { href: "/", label: "Ana Sayfa", hash: "ana-sayfa" },
@@ -56,7 +55,6 @@ export function Nav() {
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState<SectionHash>("ana-sayfa");
   const [indicator, setIndicator] = useState({ left: 0, top: 0, width: 0, visible: false });
-  const { openWizard } = useNeedWizard();
   const navRef = useRef<HTMLElement>(null);
   const linkRefs = useRef(new Map<SectionHash, HTMLAnchorElement>());
   const lockedRef = useRef<SectionHash | null>(null);
@@ -191,11 +189,19 @@ export function Nav() {
     return () => window.removeEventListener("resize", onResize);
   }, [active, path, measureIndicator]);
 
-  const goHash = (id: SectionHash) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const goNav = (href: string, id: SectionHash) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     setMenu(false);
-    if (path !== "/") return;
+    // Yalnızca ana sayfa içi hash linklerinde scroll; /urunler /servis vb. gerçek route'a gitsin.
+    const isInPageHash = href === "/" || href.startsWith("/#");
+    if (!isInPageHash || path !== "/") return;
     e.preventDefault();
     navigateTo(id);
+  };
+
+  const linkIsActive = (href: string, hash: SectionHash) => {
+    if (path === "/") return active === hash;
+    if (href === "/" || href.startsWith("/#")) return false;
+    return path === href || path.startsWith(`${href}/`);
   };
 
   return (
@@ -213,7 +219,7 @@ export function Nav() {
         >
           <Image
             src="/images/logo.webp"
-            alt="COOLDER logosu"
+            alt="COOLDER Soğutma logosu"
             width={160}
             height={152}
             className="h-10 w-auto sm:h-11"
@@ -221,7 +227,7 @@ export function Nav() {
           />
           <Image
             src="/images/topbar-yazi-b.webp"
-            alt="COOLDER soğutma"
+            alt="COOLDER Soğutma"
             width={900}
             height={181}
             className="h-8 w-auto sm:h-9"
@@ -235,7 +241,7 @@ export function Nav() {
           aria-label="Ana menü"
         >
           {LINKS.map((l) => {
-            const isActive = path === "/" && active === l.hash;
+            const isActive = linkIsActive(l.href, l.hash);
             return (
               <Link
                 key={l.hash}
@@ -244,7 +250,7 @@ export function Nav() {
                   if (node) linkRefs.current.set(l.hash, node);
                   else linkRefs.current.delete(l.hash);
                 }}
-                onClick={goHash(l.hash)}
+                onClick={goNav(l.href, l.hash)}
                 className={`relative px-2.5 py-2 text-nav font-medium transition-colors duration-200 xl:px-3 xl:text-base ${
                   isActive ? "text-frost" : "text-mute hover:text-frost"
                 }`}
@@ -277,16 +283,6 @@ export function Nav() {
           </a>
           <button
             type="button"
-            className="rounded-full bg-cyan px-3.5 py-2 text-sm font-semibold text-white hover:bg-sky"
-            onClick={() => {
-              setMenu(false);
-              openWizard();
-            }}
-          >
-            Teklif al
-          </button>
-          <button
-            type="button"
             className="grid h-10 w-10 place-items-center rounded-md border border-line lg:hidden"
             aria-expanded={menu}
             aria-label={menu ? "Menüyü kapat" : "Menüyü aç"}
@@ -305,12 +301,12 @@ export function Nav() {
         <div className="border-t border-line bg-white lg:hidden">
           <nav className="flex flex-col px-4 py-3" aria-label="Mobil menü">
             {LINKS.map((l) => {
-              const isActive = path === "/" && active === l.hash;
+              const isActive = linkIsActive(l.href, l.hash);
               return (
                 <Link
                   key={l.hash}
                   href={l.href}
-                  onClick={goHash(l.hash)}
+                  onClick={goNav(l.href, l.hash)}
                   className={`border-b border-line py-3 text-base font-medium ${
                     isActive ? "text-frost" : ""
                   }`}
@@ -320,16 +316,6 @@ export function Nav() {
                 </Link>
               );
             })}
-            <button
-              type="button"
-              className="border-b border-line py-3 text-left text-base font-semibold text-cyan"
-              onClick={() => {
-                setMenu(false);
-                openWizard();
-              }}
-            >
-              Teklif al
-            </button>
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="py-3 font-semibold text-cyan">
               {DISPATCH_PHONE}
             </a>
