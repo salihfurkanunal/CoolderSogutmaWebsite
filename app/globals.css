@@ -205,25 +205,27 @@ select {
   --works-gap: 0.75rem;
   --works-card-w: 9.25rem;
   --works-card-h: 11.5rem;
-  --works-card-w-hot: 12.25rem;
-  --works-card-h-hot: 15.25rem;
+  --works-hover-scale: 1.32;
+  /* Hover scale layout’u itmesin diye dikey alan baştan ayrılır */
+  --works-pad-y: calc((var(--works-card-h) * (var(--works-hover-scale) - 1) / 2) + 0.65rem);
 }
 
 @media (min-width: 640px) {
   .works-marquee {
     --works-card-w: 10.5rem;
     --works-card-h: 13rem;
-    --works-card-w-hot: 14rem;
-    --works-card-h-hot: 17.5rem;
+    --works-hover-scale: 1.34;
   }
 }
 
 .works-marquee-scroller {
   display: flex;
+  align-items: center;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
-  padding: 1.1rem 1rem 1.35rem;
+  padding: var(--works-pad-y) 1rem;
+  min-height: calc(var(--works-card-h) * var(--works-hover-scale) + 1.3rem);
   scrollbar-width: none;
   -ms-overflow-style: none;
   touch-action: pan-y;
@@ -250,17 +252,13 @@ select {
 
 .works-marquee-item {
   flex: none;
-  display: grid;
-  grid-template-columns: var(--works-card-w);
-  grid-template-rows: var(--works-card-h);
-  transition:
-    grid-template-columns 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    grid-template-rows 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: var(--works-card-w);
+  height: var(--works-card-h);
+  position: relative;
+  z-index: 0;
 }
 
 .works-marquee-item:is(:hover, :focus-within) {
-  grid-template-columns: var(--works-card-w-hot);
-  grid-template-rows: var(--works-card-h-hot);
   z-index: 2;
 }
 
@@ -273,7 +271,12 @@ select {
   border-radius: var(--radius-soft);
   background: var(--color-plate);
   cursor: pointer;
-  transition: box-shadow 220ms ease;
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease;
+  will-change: transform;
 }
 
 .works-marquee-scroller.is-dragging .works-shot {
@@ -288,6 +291,7 @@ select {
 }
 
 .works-marquee-item:is(:hover, :focus-within) .works-shot {
+  transform: scale(var(--works-hover-scale));
   box-shadow: 0 14px 32px color-mix(in srgb, var(--color-frost) 22%, transparent);
 }
 
